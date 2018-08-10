@@ -29,6 +29,8 @@ class App extends Component {
 						</p>
 					</Grid>
 				</Jumbotron>
+
+				<h1>My new header</h1>
 			</div>
 		);
 	}
