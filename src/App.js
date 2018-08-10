@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
 
 class App extends Component {
@@ -29,8 +30,6 @@ class App extends Component {
 						</p>
 					</Grid>
 				</Jumbotron>
-
-				<h1>My new header</h1>
 			</div>
 		);
 	}
