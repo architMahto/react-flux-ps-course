@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Grid, Nav, Navbar, NavItem } from 'react-bootstrap';
 
+import './Header.css';
+
 class Header extends Component {
 	render() {
 		return (
-			<Navbar inverse fixedTop>
+			<Navbar inverse>
 				<Grid>
 					<Navbar.Header>
 						<Navbar.Toggle />
