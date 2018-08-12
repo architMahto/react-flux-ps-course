@@ -1,4 +1,10 @@
-.Authors-Page {
+.Authors-Table-Container {
 	margin: 0 auto;
 	max-width: 1024px;
+}
+
+Table {
+	tbody {
+		text-align: left;
+	}
 }
