@@ -3,7 +3,7 @@ import { PageHeader, Table } from 'react-bootstrap';
 
 import './Authors.css';
 
-import AuthorApi from '../Api/AuthorApi';
+import AuthorApi from '../../Api/AuthorApi';
 
 class Authors extends Component {
 	state = {

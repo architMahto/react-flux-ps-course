@@ -3,9 +3,9 @@ import { Route } from 'react-router-dom';
 
 import Header from '../Components/Header';
 
-import About from '../Pages/About';
-import Authors from '../Pages/Authors';
-import Home from '../Pages/Home';
+import About from '../Pages/About/About';
+import Authors from '../Pages/Authors/Authors';
+import Home from '../Pages/Homes/Home';
 
 import './App.css';
 
