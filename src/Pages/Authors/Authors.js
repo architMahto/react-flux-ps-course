@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { PageHeader, Table } from 'react-bootstrap';
+import { PageHeader } from 'react-bootstrap';
+
+import AuthorsTable from './Components/AuthorsTable';
 
 import './Authors.css';
 
@@ -10,17 +12,8 @@ class Authors extends Component {
 		authors: []
 	};
 
-	static createAuthorRow(author) {
-		return (
-			<tr key={author.id}>
-				<td>{author.id}</td>
-				<td>{author.firstName} {author.lastName}</td>
-			</tr>
-		);
-	}
-
 	// set the state of the component
-	UNSAFE_componentWillMount() {
+	componentDidMount() {
 		this.setState({
 			authors: AuthorApi.getAuthors()
 		});
@@ -29,22 +22,8 @@ class Authors extends Component {
 	render() {
 		return (
 			<div className="Authors-Page">
-				<PageHeader>
-					Authors
-				</PageHeader>
-				<div className="Authors-Table-Container">
-					<Table bordered condensed hover>
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Name</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.state.authors.map(Authors.createAuthorRow, this)}
-						</tbody>
-					</Table>
-				</div>
+				<PageHeader>Authors</PageHeader>
+				<AuthorsTable authors={this.state.authors} />
 			</div>
 		);
 	}
