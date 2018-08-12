@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { Grid, Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Grid, Image, Nav, Navbar, NavItem } from 'react-bootstrap';
 
 import './Header.css';
+import logo from '../logo.svg';
 
 class Header extends Component {
 	render() {
 		return (
-			<Navbar inverse>
+			<Navbar className="App-navbar" inverse>
 				<Grid>
 					<Navbar.Header>
+						<Navbar.Brand>
+							<a className="App-logo-link" href="/">
+								<Image src={logo} className="App-logo" />
+							</a>
+						</Navbar.Brand>
 						<Navbar.Toggle />
 					</Navbar.Header>
 					<Navbar.Collapse>
