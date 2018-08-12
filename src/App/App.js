@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import Header from '../Components/Header';
 
@@ -12,7 +13,8 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<Home />
+				<Route path="/" exact component={Home} />
+				<Route path="/about" component={About} />
 			</div>
 		);
 	}

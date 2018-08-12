@@ -13,7 +13,8 @@ class Header extends Component {
 					</Navbar.Header>
 					<Navbar.Collapse>
 						<Nav>
-							<NavItem eventKey={1} href="#">Home</NavItem>
+							<NavItem eventKey={1} href="/">Home</NavItem>
+							<NavItem eventKey={1} href="/about">About</NavItem>
 						</Nav>
 					</Navbar.Collapse>
 				</Grid>
