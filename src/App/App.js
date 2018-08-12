@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Header from '../Components/Header';
 
 import About from '../Pages/About';
+import Authors from '../Pages/Authors';
 import Home from '../Pages/Home';
 
 import './App.css';
@@ -15,6 +16,7 @@ class App extends Component {
 				<Header />
 				<Route path="/" exact component={Home} />
 				<Route path="/about" component={About} />
+				<Route path="/authors" component={Authors} />
 			</div>
 		);
 	}
