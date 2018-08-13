@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, PageHeader } from 'react-bootstrap';
+import { Button, Grid, PageHeader, Row } from 'react-bootstrap';
 
 import AuthorsTable from './AuthorsTable';
 
@@ -29,12 +29,14 @@ class AuthorsList extends Component {
 		return (
 			<div className="Authors-Page">
 				<PageHeader>Authors</PageHeader>
-				<div className={`Page-Container Authors-Page-Container`}>
-					<Link to={`${this.match.url}/add-author`}>
-						<Button type={'button'} bsStyle={'primary'}>Add Author</Button>
-					</Link>
-					<AuthorsTable authors={this.state.authors} match={this.match} />
-				</div>
+				<Grid>
+					<Row xs={12} md={8}>
+						<Link to={`${this.match.url}/add-author`}>
+							<Button type={'button'} bsStyle={'primary'}>Add Author</Button>
+						</Link>
+						<AuthorsTable authors={this.state.authors} match={this.match} />
+					</Row>
+				</Grid>
 			</div>
 		);
 	}
