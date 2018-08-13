@@ -19,19 +19,17 @@ const createAuthorRow = (match) => {
 
 const AuthorsTable = ({ authors, match }) => {
 	return (
-		<div>
-			<Table bordered condensed hover>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Name</th>
-					</tr>
-				</thead>
-				<tbody>
-					{authors.map(createAuthorRow(match), this)}
-				</tbody>
-			</Table>
-		</div>
+		<Table bordered condensed hover>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				{authors.map(createAuthorRow(match), this)}
+			</tbody>
+		</Table>
 	)
 };
 
