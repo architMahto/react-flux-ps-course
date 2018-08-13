@@ -1,26 +1,23 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 
 import './AuthorsTable.css';
 
-const createAuthorRow = (author) => {
-	// TODO - Implement factory for match API
-	// console.log('match:', match);
-	// return function(author) {
+const createAuthorRow = (match) => {
+	return function(author) {
 		return (
 			<tr key={author.id}>
 				<td>
-					<Link to={`courses/${author.id}`}>{author.id}</Link>
-					{/*{author.id}*/}
+					<Link to={`${match.url}/${author.id}`}>{author.id}</Link>
 				</td>
 				<td>{author.firstName} {author.lastName}</td>
 			</tr>
 		);
-	// }
+	}
 };
 
-const AuthorsTable = ({ authors }) => {
+const AuthorsTable = ({ authors, match }) => {
 	return (
 		<div>
 			<Table bordered condensed hover>
@@ -31,10 +28,9 @@ const AuthorsTable = ({ authors }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{authors.map(createAuthorRow, this)}
+					{authors.map(createAuthorRow(match), this)}
 				</tbody>
 			</Table>
-			<Route exact path={`courses/:author`} />
 		</div>
 	)
 };

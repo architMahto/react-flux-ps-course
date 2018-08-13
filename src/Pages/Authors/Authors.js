@@ -1,32 +1,16 @@
-import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import AuthorsTable from './Components/AuthorsTable';
+import AuthorsList from './Components/AuthorsList';
 
-import './Authors.css';
-
-import AuthorApi from '../../Api/AuthorApi';
-
-class Authors extends Component {
-	state = {
-		authors: []
-	};
-
-	// set the state of the component
-	componentDidMount() {
-		this.setState({
-			authors: AuthorApi.getAuthors()
-		});
-	}
-
-	render() {
-		return (
-			<div className="Authors-Page">
-				<PageHeader>Authors</PageHeader>
-				<AuthorsTable authors={this.state.authors} />
-			</div>
-		);
-	}
-}
+// TODO - Replace authorId render with AuthorProfile component
+const Authors = ({ match }) => {
+	return (
+		<Switch>
+			<Route path={match.path} exact component={AuthorsList}/>
+			<Route path={`${match.path}/:authorId`} render={() => (<div>Author Profile</div>)}/>
+		</Switch>
+	);
+};
 
 export default Authors;
