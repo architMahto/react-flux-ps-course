@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from '../Components/Header';
 
 import About from '../Pages/About/About';
 import Authors from '../Pages/Authors/Authors';
 import Home from '../Pages/Home/Home';
+import NotFound from '../Pages/NotFound/NotFound';
 
 import './App.css';
 
@@ -14,9 +15,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<Route path="/" exact component={Home} />
-				<Route path="/about" component={About} />
-				<Route path="/authors" component={Authors} />
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/about" component={About} />
+					<Route path="/authors" component={Authors} />
+					<Route component={NotFound} />
+				</Switch>
 			</div>
 		);
 	}
