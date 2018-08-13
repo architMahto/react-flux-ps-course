@@ -9,14 +9,12 @@ class About extends Component {
 			<div className="About-Page">
 				<PageHeader>About</PageHeader>
 				<p>This application uses the following technologies:</p>
-				<div className="About-Page-List-Container">
-					<ListGroup>
-						<ListGroupItem>React</ListGroupItem>
-						<ListGroupItem>ReactRouter</ListGroupItem>
-						<ListGroupItem>Flux</ListGroupItem>
-						<ListGroupItem>Bootstrap</ListGroupItem>
-					</ListGroup>
-				</div>
+				<ListGroup>
+					<ListGroupItem>React</ListGroupItem>
+					<ListGroupItem>ReactRouter</ListGroupItem>
+					<ListGroupItem>Flux</ListGroupItem>
+					<ListGroupItem>Bootstrap</ListGroupItem>
+				</ListGroup>
 			</div>
 		);
 	}

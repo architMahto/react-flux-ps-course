@@ -5,7 +5,7 @@ import Header from '../Components/Header';
 
 import About from '../Pages/About/About';
 import Authors from '../Pages/Authors/Authors';
-import Home from '../Pages/Homes/Home';
+import Home from '../Pages/Home/Home';
 
 import './App.css';
 
