@@ -8,13 +8,15 @@ class About extends Component {
 		return (
 			<div className="About-Page">
 				<PageHeader>About</PageHeader>
-				<p>This application uses the following technologies:</p>
-				<ListGroup>
-					<ListGroupItem>React</ListGroupItem>
-					<ListGroupItem>ReactRouter</ListGroupItem>
-					<ListGroupItem>Flux</ListGroupItem>
-					<ListGroupItem>Bootstrap</ListGroupItem>
-				</ListGroup>
+				<div className="Page-Container">
+					<p>This application uses the following technologies:</p>
+					<ListGroup>
+						<ListGroupItem>React</ListGroupItem>
+						<ListGroupItem>ReactRouter</ListGroupItem>
+						<ListGroupItem>Flux</ListGroupItem>
+						<ListGroupItem>Bootstrap</ListGroupItem>
+					</ListGroup>
+				</div>
 			</div>
 		);
 	}

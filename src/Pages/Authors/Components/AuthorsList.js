@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
+import { Button, PageHeader } from 'react-bootstrap';
 
 import AuthorsTable from './AuthorsTable';
 
@@ -28,7 +28,9 @@ class AuthorsList extends Component {
 		return (
 			<div className="Authors-Page">
 				<PageHeader>Authors</PageHeader>
-				<AuthorsTable authors={this.state.authors} match={this.match} />
+				<div className="Page-Container">
+					<AuthorsTable authors={this.state.authors} match={this.match} />
+				</div>
 			</div>
 		);
 	}
