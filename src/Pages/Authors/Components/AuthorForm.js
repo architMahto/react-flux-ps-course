@@ -1,12 +1,23 @@
-import React from 'react';
-import { PageHeader } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Grid, PageHeader, Row } from 'react-bootstrap';
 
-const AuthorForm = () => {
-	return(
-		<div className="Author-Form">
-			<PageHeader>Add Author</PageHeader>
-		</div>
-	);
-};
+import AuthorFormView from './AuthorFormView';
+
+import './AuthorForm.css';
+
+export class AuthorForm extends Component {
+	render() {
+		return (
+			<div className="Author-Form">
+				<PageHeader>Add Author</PageHeader>
+				<Grid>
+					<Row xs={12} md={8}>
+						<AuthorFormView />
+					</Row>
+				</Grid>
+			</div>
+		);
+	}
+}
 
 export default AuthorForm;
