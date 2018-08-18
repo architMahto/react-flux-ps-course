@@ -13,7 +13,7 @@ class AuthorApi {
 
 	static addAuthor(author) {
 		if (author.id) {
-			let existingAuthorIndex = _.indexOf(AUTHORS_DATA.authors, _.find(AUTHORS_DATA.authors, ));
+			let existingAuthorIndex = _.indexOf(AUTHORS_DATA.authors, _.find(AUTHORS_DATA.authors, {id: author.id}));
 			AUTHORS_DATA.authors.splice(existingAuthorIndex, 1, author);
 		} else {
 			author.id = this._generateId(author);

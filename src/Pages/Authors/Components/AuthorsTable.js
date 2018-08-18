@@ -9,7 +9,7 @@ const createAuthorRow = (match) => {
 		return (
 			<tr key={author.id}>
 				<td>
-					<Link to={`${match.url}/${author.id}`}>{author.id}</Link>
+					<Link to={`${match.url}/manage-author/${author.id}`}>{author.id}</Link>
 				</td>
 				<td>{author.firstName} {author.lastName}</td>
 			</tr>

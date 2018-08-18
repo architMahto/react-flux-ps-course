@@ -25,27 +25,33 @@ export class AddAuthor extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	onFieldChange(event) {
-		const field = event.target.name;
-		const value = event.target.value;
+	UNSAFE_componentWillMount() {
+		let author = this.match.params.hasOwnProperty('authorId') ?
+			AuthorApi.getAuthorById(this.match.params['authorId']) :
+			null;
 
+		if (author) {
+			this.setState({...this.state, author });
+		}
+	}
+
+	onFieldChange(event) {
 		this.setState({
-			...this.state,
 			author: {
 				...this.state.author,
-				[field]: value
+				[event.target.name]: event.target.value
 			},
-			errors: {}
+			errors: {
+				...this.state.errors,
+				[event.target.name]: null
+			}
 		});
 	}
 
 	isFormValid() {
 		let {isFormValid, errors} = this.validateFields();
 
-		this.setState({
-			...this.state,
-			errors
-		});
+		this.setState({...this.state, errors});
 
 		return isFormValid;
 	}
@@ -84,11 +90,7 @@ export class AddAuthor extends Component {
 				<PageHeader>Add Author</PageHeader>
 				<Grid fluid={true}>
 					<Row>
-						<Col xs={12}
-								 sm={6}
-								 md={4}
-								 smOffset={3}
-								 mdOffset={4}>
+						<Col xs={12} sm={6} md={4} smOffset={3} mdOffset={4}>
 							<AuthorForm author={this.state.author}
 													errors={this.state.errors}
 													onFieldChange={this.onFieldChange}
