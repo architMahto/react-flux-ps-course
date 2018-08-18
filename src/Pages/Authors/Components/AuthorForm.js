@@ -17,7 +17,8 @@ export class AuthorForm extends Component {
 				id: '',
 				firstName: '',
 				lastName: ''
-			}
+			},
+			errors: {}
 		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
@@ -29,15 +30,50 @@ export class AuthorForm extends Component {
 		const value = event.target.value;
 
 		this.setState({
+			...this.state,
 			author: {
 				...this.state.author,
 				[field]: value
-			}
+			},
+			errors: {}
 		});
+	}
+
+	isFormValid() {
+		let {isFormValid, errors} = this.validateFields();
+
+		this.setState({
+			...this.state,
+			errors
+		});
+
+		return isFormValid;
+	}
+
+	validateFields() {
+		let isFormValid = true;
+		let errors = {};
+
+		if (this.state.author.firstName.length < 3) {
+			errors['firstName'] = 'First name must be at least 3 characters';
+			isFormValid = false;
+		}
+
+		if (this.state.author.lastName.length < 3) {
+			errors['lastName'] = 'Last name must be at least 3 characters';
+			isFormValid = false;
+		}
+
+		return {isFormValid, errors};
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
+
+		if (!this.isFormValid()) {
+			return;
+		}
+
 		AuthorApi.addAuthor(this.state.author);
 		this.history.push('/authors');
 	}
@@ -54,6 +90,7 @@ export class AuthorForm extends Component {
 								 smOffset={3}
 								 mdOffset={4}>
 							<AuthorFormView author={this.state.author}
+															errors={this.state.errors}
 															onFieldChange={this.onFieldChange}
 															handleSubmit={this.handleSubmit}/>
 						</Col>
