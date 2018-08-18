@@ -3,9 +3,9 @@ import { Button } from 'react-bootstrap';
 
 import TextInput from '../../../Components/TextInput';
 
-const AuthorFormView = ({ author, onFieldChange }) => {
+const AuthorFormView = ({ author, onFieldChange, handleSubmit }) => {
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<TextInput label="First Name:"
 								 name="firstName"
 								 placeholder="Enter first name"

@@ -3,20 +3,25 @@ import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
 
 import AuthorFormView from './AuthorFormView';
 
+import AuthorApi from '../../../Api/AuthorApi';
+
 import './AuthorForm.css';
 
 export class AuthorForm extends Component {
 	constructor(props) {
 		super(props);
+		this.match = props.match;
+		this.history = props.history;
 		this.state = {
 			author: {
 				id: '',
 				firstName: '',
 				lastName: ''
 			}
-		}
+		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	onFieldChange(event) {
@@ -31,6 +36,12 @@ export class AuthorForm extends Component {
 		});
 	}
 
+	handleSubmit(event) {
+		event.preventDefault();
+		AuthorApi.addAuthor(this.state.author);
+		this.history.push('/authors');
+	}
+
 	render() {
 		return (
 			<div className="Author-Form">
@@ -43,7 +54,8 @@ export class AuthorForm extends Component {
 								 smOffset={3}
 								 mdOffset={4}>
 							<AuthorFormView author={this.state.author}
-															onFieldChange={this.onFieldChange} />
+															onFieldChange={this.onFieldChange}
+															handleSubmit={this.handleSubmit}/>
 						</Col>
 					</Row>
 				</Grid>
