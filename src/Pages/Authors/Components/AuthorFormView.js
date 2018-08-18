@@ -1,29 +1,23 @@
 import React from 'react';
-import { Button, ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
+import TextInput from '../../../Components/TextInput';
 
 const AuthorFormView = ({ author, onFieldChange }) => {
 	return (
 		<form>
-			<FormGroup controlId="first-name">
-				<ControlLabel>First Name:</ControlLabel>
-				<FormControl type="text"
-										 name="firstName"
-										 placeholder="Enter first name"
-										 value={author.firstName}
-										 onChange={onFieldChange}
-										 bsSize="lg" />
-			</FormGroup>
-			<br />
-			<FormGroup controlId="last-name">
-				<ControlLabel>Last Name:</ControlLabel>
-				<FormControl type="text"
-										 name="lastName"
-										 placeholder="Enter last name"
-										 value={author.lastName}
-										 onChange={onFieldChange}
-										 bsSize="lg" />
-			</FormGroup>
-			<br />
+			<TextInput label="First Name:"
+								 name="firstName"
+								 placeholder="Enter first name"
+								 value={author.firstName}
+								 onFieldChange={onFieldChange}/>
+			<br/>
+			<TextInput label="Last Name:"
+								 name="lastName"
+								 placeholder="Enter last name"
+								 value={author.lastName}
+								 onFieldChange={onFieldChange}/>
+			<br/>
 			<Button type={'submit'}
 							bsSize={'large'}>
 				Submit
